@@ -1,15 +1,13 @@
 const express = require('express');
-const { addParkingSlot, getAllSlots, deleteParkingSlot } = require('../controllers/addSlotController');
-const { bookSlot } = require('../controllers/bookSlotController');
+const { addParkingSlot, getAllSlots, deleteParkingSlot, insertDummyData } = require('../controllers/addSlotController');
+const autoBook = require('../controllers/bookSlotController');
 
-const router = express.Router();
+const addSlotRoute = express.Router();
 
 // Routes
-router.post('/addSlot', addParkingSlot); // Add a new slot
-router.get('/getSlots', getAllSlots); // Get all slots
-router.delete('/deleteSlot/:id', deleteParkingSlot); // Delete a slot by ID
-router.post('/bookSlot', bookSlot); // book slot
-// POST: Save a parking location
-router.post("/", saveLocation);
+addSlotRoute.post('/addSlot', addParkingSlot); // Add a new slot
+addSlotRoute.get('/getSlots', getAllSlots); // Get all slots
+addSlotRoute.delete('/deleteSlot/:id', deleteParkingSlot); // Delete a slot by ID
+addSlotRoute.post('/insertDummyData', insertDummyData); // Insert dummy data for testing
 
-module.exports = router;
+module.exports = addSlotRoute;
