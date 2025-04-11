@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
 const parkingSlotSchema = new mongoose.Schema({
-  user:{type:mongoose.Types.ObjectId,required:true,ref:'user'},
-  name: { type: String, required: true },
+  vehicleNumber: { type: String, required: true },
   location: { type: mongoose.Types.ObjectId, required: true },
   slot:{type: Number},
   paymentStatus:{type:Boolean,default:false},
